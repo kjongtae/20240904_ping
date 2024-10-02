@@ -1,0 +1,36 @@
+[linux]
+sysloper21gm ansible_host=172.30.236.51
+sysloper22gm ansible_host=172.30.236.52
+sysloper23gm ansible_host=172.30.236.53
+sysloper24gm ansible_host=172.30.236.54
+sysloper25gm ansible_host=172.30.236.55
+sysloper26gm ansible_host=172.30.236.56
+sysloper27gm ansible_host=172.30.236.57
+sysloper28gm ansible_host=172.30.236.58
+sysloper29gm ansible_host=172.30.236.59
+sysloper30gm ansible_host=172.30.236.60
+
+[linux:vars]
+ansible_connection=ssh
+ansible_port=22
+
+
+
+
+
+[win]
+syswuptest01am ansible_host=192.168.213.45
+syswuptest02am ansible_host=192.168.213.46
+syswuptest03am ansible_host=192.168.213.47
+syswuptest01ap ansible_host=172.21.101.135
+syswuptest02ap ansible_host=172.21.101.136
+syswuptest03ap ansible_host=172.21.101.137
+syswuptest01az ansible_host=172.18.208.7
+syswuptest01az ansible_host=172.18.208.8
+syswuptest01az ansible_host=172.18.208.9
+
+[win:vars]
+ansible_port=5985
+ansible_winrm_transport=ntlm
+ansible_connection=winrm
+ansible_winrm_server_cert_validation=ignore

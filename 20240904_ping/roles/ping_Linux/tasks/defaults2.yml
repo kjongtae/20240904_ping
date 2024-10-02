@@ -1,0 +1,103 @@
+---
+- name: url define create
+  set_fact:
+    post_win_server_patch_create_url:
+      "http://172.30.208.165:9200/ping_index/_doc/{{ inventory_hostname }}"
+
+- name: ckeck date
+  shell: "date +%Y-%m-%d"
+  register: ck_date1
+  delegate_to: localhost
+
+- name: ckeck time
+  shell: "date +%H:%M"
+  register: ck_time1
+  delegate_to: localhost
+
+- name: ping test
+  ping:
+  register: ck_ping
+  ignore_unreachable: yes
+  ignore_errors: yes
+
+- name: Set pingStatus / Failed
+  set_fact:
+    ck_pingStatus: 
+      "Failed"
+  when:
+  - "'unreachable' in ck_ping"
+#  - ck_ping.unreachable == 'true'
+
+
+- name: Set pingStatus / Failed2
+  set_fact:
+    ck_pingStatus: 
+      "Failed"
+  when:
+  - "'failed' in ck_ping"
+  - ck_ping.failed == true
+
+- name: Set pingStatus / OK
+  set_fact:
+    ck_pingStatus: 
+      "{{ ck_ping.ping }}"
+  when:
+  - "'ping' in ck_ping"
+  - ck_ping.ping == 'pong'
+
+- name: check become
+  shell: "ls -ahl /root/"
+  register: ck_become
+  ignore_unreachable: yes
+  ignore_errors: yes
+  become: true
+
+- name: Set becomeStatus / Failed
+  set_fact:
+    ck_becomeStatus:
+      "Failed"
+  when:
+  - "'failed' in ck_become"
+  - ck_become.failed == true
+
+- name: Set becomeStatus / Failed / unreachable
+  set_fact:
+    ck_becomeStatus:
+      "Failed"
+  when:
+  - "'unreachable' in ck_become"
+
+- name: Set becomeStatus / OK
+  set_fact:
+    ck_becomeStatus:
+      "OK"
+  when:
+  - "'failed' in ck_become"
+  - ck_become.failed == false
+
+- name: set_fact
+  set_fact:
+    act_result: {
+     'ipAddress': "{{ ansible_host }}",
+     'startDate': "{{ ck_date1.stdout_lines.0 }}",
+     'startTime': "{{ ck_time1.stdout_lines.0 }}",
+     'pingStatus':  "{{ ck_pingStatus }}",
+     'becomeStatus':  "{{ ck_becomeStatus }}"
+    }
+
+- name: insert result
+  ansible.builtin.uri:
+    url: "{{ post_win_server_patch_create_url }}"
+    user: "elastic"
+    password: "elastic1234"
+    method: POST
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    body_format: json
+    body:
+      "{{ act_result }}"
+    validate_certs: no
+    status_code: 200,201
+    timeout: 10
+  delegate_to: localhost

@@ -1,0 +1,15 @@
+---
+#- name: ls
+#  shell: "ls -ahl /root/"
+#  register: ck_becom
+#  ignore_errors: yes
+
+- name: mount
+  shell: "df -h"
+  register: ck_mount
+  ignore_unreachable: yes
+  ignore_errors: yes
+
+- name: print mount
+  debug:
+    msg: "{{ ck_mount.stdout_lines }}"

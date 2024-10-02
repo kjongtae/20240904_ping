@@ -1,0 +1,10 @@
+---
+- name: Echo ansible_user and ansible_password
+  shell: |
+    echo "Ansible User: {{ ansible_user }}"
+    echo "Ansible Password: {{ ansible_password }}"
+  register: echo_output
+
+- name: Display echo output
+  debug:
+    msg: "{{ echo_output.stdout_lines }}"

@@ -1,0 +1,9 @@
+---
+- name: get last update
+  win_shell: |
+    Get-WinEvent -LogName Setup -MaxEvents 10
+  register: win_server_updateDate
+
+- name: last update print
+  debug:
+    msg: "{{ win_server_updateDate.stdout_lines }}"

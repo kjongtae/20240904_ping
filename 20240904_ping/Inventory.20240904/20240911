@@ -1,0 +1,14 @@
+[win]
+GEXTSQL202GM ansible_host=172.30.245.108
+GLOBALDB101AM ansible_host=192.168.215.97
+gpastdb202gm ansible_host=172.30.215.166
+KDDFDB1201AM ansible_host=192.168.216.36
+NAMAILDB202GM ansible_host=172.30.215.118
+padb01am ansible_host=192.168.215.217
+papdb01pm ansible_host=172.31.216.86
+
+[win:vars]
+ansible_port=5985
+ansible_winrm_transport=ntlm
+ansible_connection=winrm
+ansible_winrm_server_cert_validation=ignore

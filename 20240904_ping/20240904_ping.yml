@@ -1,0 +1,21 @@
+---
+- hosts: "{{ HostName }}"
+#- hosts: linux
+  gather_facts: no
+#  gather_facts: yes
+#  serial: 1
+  vars:
+#    ansible_user: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=gmarket/ansible-kv/data/ansible-linux:username token_validate=false token=s.IAqs5Wy5LSKpokPS0pIIbmLO.o5cqP url=https://vault.gmarket.co.kr:8200') }}"
+#    ansible_password: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=gmarket/ansible-kv/data/ansible-linux:password token_validate=false token=s.IAqs5Wy5LSKpokPS0pIIbmLO.o5cqP url=https://vault.gmarket.co.kr:8200') }}"
+    ansible_user: "{{ lookup('env', 'ANSIBLE_USER') }}"
+    ansible_password: "{{ lookup('env', 'ANSIBLE_PASSWORD') }}"
+    ansible_become_pass: "{{ lookup('env', 'ANSIBLE_PASSWORD') }}"
+
+  roles:
+    - role: ping_Linux
+      tags:
+      - linux
+
+    - role: ping_Win
+      tags:
+      - win

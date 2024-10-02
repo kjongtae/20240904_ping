@@ -1,0 +1,5 @@
+---
+- name: ping test
+  win_ping:
+  ignore_unreachable: yes
+  ignore_errors: yes
