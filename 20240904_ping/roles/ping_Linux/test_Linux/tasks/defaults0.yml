@@ -1,5 +1,0 @@
----
-- name: ping test
-  ping:
-  ignore_unreachable: yes
-  ignore_errors: yes

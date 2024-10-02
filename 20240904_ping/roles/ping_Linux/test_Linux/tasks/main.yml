@@ -1,5 +1,0 @@
----
-# tasks file for test
-- name: Lv.1 / Test
-  include_tasks: defaults0.yml
-#  include_tasks: defaults1.yml
