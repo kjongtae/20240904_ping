@@ -20,15 +20,15 @@ ansible_port=22
 
 
 [win]
-syswuptest01ab ansible_host=192.168.213.45
-syswuptest02ab ansible_host=192.168.213.46
-syswuptest03ab ansible_host=192.168.213.47
-syswuptest01ac ansible_host=172.21.101.135
-syswuptest02ac ansible_host=172.21.101.136
-syswuptest03ac ansible_host=172.21.101.137
-syswuptest01ad ansible_host=172.18.208.7
-syswuptest01ad ansible_host=172.18.208.8
-syswuptest01ad ansible_host=172.18.208.9
+#syswuptest01ab ansible_host=192.168.213.45
+#syswuptest02ab ansible_host=192.168.213.46
+#syswuptest03ab ansible_host=192.168.213.47
+#syswuptest01ac ansible_host=172.21.101.135
+#syswuptest02ac ansible_host=172.21.101.136
+#syswuptest03ac ansible_host=172.21.101.137
+#syswuptest01ad ansible_host=172.18.208.7
+#syswuptest01ad ansible_host=172.18.208.8
+#syswuptest01ad ansible_host=172.18.208.9
 
 [win:vars]
 ansible_port=5985
