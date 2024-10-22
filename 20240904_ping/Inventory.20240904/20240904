@@ -20,7 +20,7 @@ ansible_port=22
 
 
 [win]
-#syswuptest01ab ansible_host=192.168.213.45
+syswuptest01ab ansible_host=192.168.213.45
 #syswuptest02ab ansible_host=192.168.213.46
 #syswuptest03ab ansible_host=192.168.213.47
 #syswuptest01ac ansible_host=172.21.101.135
