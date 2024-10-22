@@ -1,14 +1,15 @@
 [linux]
-sysloper21aa ansible_host=172.30.236.51
-sysloper22aa ansible_host=172.30.236.52
-sysloper23aa ansible_host=172.30.236.53
-sysloper24aa ansible_host=172.30.236.54
-sysloper25aa ansible_host=172.30.236.55
-sysloper26aa ansible_host=172.30.236.56
-sysloper27aa ansible_host=172.30.236.57
-sysloper28aa ansible_host=172.30.236.58
-sysloper29aa ansible_host=172.30.236.59
-sysloper30aa ansible_host=172.30.236.60
+Target ansible_host=192.168.123.163
+#sysloper21aa ansible_host=172.30.236.51
+#sysloper22aa ansible_host=172.30.236.52
+#sysloper23aa ansible_host=172.30.236.53
+#sysloper24aa ansible_host=172.30.236.54
+#sysloper25aa ansible_host=172.30.236.55
+#sysloper26aa ansible_host=172.30.236.56
+#sysloper27aa ansible_host=172.30.236.57
+#sysloper28aa ansible_host=172.30.236.58
+#sysloper29aa ansible_host=172.30.236.59
+#sysloper30aa ansible_host=172.30.236.60
 
 [linux:vars]
 ansible_connection=ssh
