@@ -2,7 +2,7 @@
 - name: url define create
   set_fact:
     post_win_server_patch_create_url:
-      "http://127.0.0.1:9200/ping_index/_doc/{{ inventory_hostname }}"
+      "http://192.168.123.161:9200/ping_index/_doc/{{ inventory_hostname }}"
 
 - name: ckeck date
   shell: "date +%Y-%m-%d"
